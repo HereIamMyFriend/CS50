@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History of purchasing
+{% endblock %}
+
+{% block main %}
+    <table class="table line" >
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for operation in purchase %}
+            <tr>
+                <td>{{operation["symbol"]}}</td>
+                <td>{{operation["amount"]}}</td>
+                <td>{{operation["price"] | usd}}</td>
+                <td>{{operation["date"]}}</td>
+           </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

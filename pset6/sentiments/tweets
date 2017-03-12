@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+import helpers
+import sys
+
+from analyzer import Analyzer
+from termcolor import colored
+
+
+def main():
+    screen_name = command_line()
+    tweets = helpers.get_user_timeline(screen_name, 50)
+    analyzer = Analyzer()   # instantiate analyzer
+    
+    for post in tweets:
+        score = analyzer.analyze(post)  # rate the tweets
+        outputs(score, post)        #output results
+    
+def command_line():
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./tweets screen_name")
+    return sys.argv[1]
+    
+def outputs(score, post):    
+    try:
+        if score > 0.0:
+            print(colored(score, "green"), colored(post, "green"))
+        elif score < 0.0:
+            print(colored(score, "red"), colored(post, "red"))
+        else:
+            print(colored(score, "yellow"), colored(post, "yellow"))
+    except:
+        sys.exit("Enter the screen name without @!!!!")
+        
+        
+if __name__ == "__main__":
+    main()
+

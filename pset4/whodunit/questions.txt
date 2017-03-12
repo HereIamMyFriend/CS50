@@ -1,0 +1,38 @@
+0. What's stdint.h? - Stdint.h is a header file in the C standard library introduced in the C99 standard library to allow programmers to write more portable code by providing 
+a set of typedefs that specify exact-width integer types, together with the defined minimum and maximum allowable values for each type, using macros.
+
+1. What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program? - It's an unsigned types for  BYTE, DWORD, LONG and  WORD
+
+2. How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively? - 1, 4, 4, 2.
+
+3. What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be?
+Leading bytes used to identify file formats (with high probability) are generally called "magic numbers."
+This value saved in bfType.
+Two first bytes contains - 0x424d
+
+4. What’s the difference between bfSize and biSize? 
+    bfType - contain 2 bytes. it's a header value of BMP file. 
+    bfSize - caontain 4 bytes. Size in BYTES of the file.
+
+5. What does it mean if biHeight is negative?
+Figure collapses in the upper left corner.
+
+6. What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+    28 WORD bibitCount.
+    
+7. Why might fopen return NULL in lines 24 and 32 of copy.c?
+    If there is file missing or reading error.
+
+8. Why is the third argument to fread always 1 in our code?
+    The number of elements, each of which has a size of byte. We are always using 1 structure.
+    
+9. What value does line 65 of copy.c assign to padding if bi.biWidth is 3?
+ 3 pixels * 3 bytes * 3 padding = 12, that is multiple by 4.
+ 
+10. What does fseek do?
+fseek function moves the pointer to the position in the stream.
+Sets the internal pointer of the position in the file to a new position, which is determined by adding an offset to the starting position.
+
+11. What is SEEK_CUR?
+One parameter of the fseek function.
+The current position of the file.

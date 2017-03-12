@@ -1,0 +1,27 @@
+0. Pneumonoultramicroscopicsilicovolcanoconiosis is an English word that refers to a lung disease that is otherwise known as silicosis. 
+It is the longest word in the English language published in a dictionary, the Oxford English Dictionary.
+
+1.  It is a benchmark for gathering statistics, especially execute time.
+
+2. It is contains 16 variables.
+
+3. Every time we calling this variables (before and after), value of this variables is always overwritten. 
+So for every new benchmark our variables in struck have to be initialized.
+Due to it performance of the code is lower. 
+
+4.  The "for" loop iterates through the whole file, character by character, until the EOF is reached.
+If the current character is alphabetic or "\'" (apostrophe) its appends the character to the word. The index counter is incremented.
+The index and the character has a bond. 
+It is necessary for the implementation of the verification algorithm with a dictionary.
+If the index is higher than the maximum length of a word, we read through the rest of the word and dont add it to the array.
+The index is equals 0 in that case.
+If the character is digit it is ignored. 
+The index is reseted (=0) and ready for a new word.
+When we found the word, we separate it by the "\0" and checking the word spelling also calling the benchmark for before and after conditions. 
+If the word is misspelled - print it.
+The index is reseted for the next word by equating it to zero.
+
+5. Due to using the fgetc() function we are able to make an easy verifying for digits, non-alphabetical characters etc.
+The fscanf() function return the string that should contail the whole list of entered words. It not rational in terms of resources.
+
+6. For variable immutability. 
